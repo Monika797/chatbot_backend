@@ -39,7 +39,7 @@ export const userSignUp = async (req, res, next) => {
       path: "/",
     });
 
-    const token = createToken(existingUser._id, existingUser.email, "7d");
+    const token = createToken(user._id, user.email, "7d");
     const expires = new Date();
     expires.setDate(expires.getDate() + 7); //same as that of token
     //cookie crested in browser

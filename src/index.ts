@@ -4,6 +4,7 @@ import express from "express";
 import morgan from "morgan";
 import userRouter from "./routes/user_routes.js";
 import cookieParser from "cookie-parser";
+import cors from "cors";
 
 config();
 const app = express();
@@ -13,6 +14,7 @@ const app = express();
 // });
 
 //middlewares
+app.use(cors({ origin: "http://localhost:3000", credentials: true }));
 app.use(express.json());
 app.use(morgan("dev")); // GET /api/v1 200 56.248 ms - 34
 app.use(cookieParser(process.env.COOKIE_SECRET));
